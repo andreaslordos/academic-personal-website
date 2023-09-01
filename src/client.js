@@ -1,6 +1,6 @@
 // sanity.js
 import { createClient } from "@sanity/client";
-import configData from "config.json"
+import configData from "./config.json"
 
 export const sanityClient = createClient({
   projectId: "ynmpcv7c",
