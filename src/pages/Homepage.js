@@ -49,7 +49,7 @@ const homepageSx = {
   },
 };
 
-export default function Homepage() {
+export default function Homepage(props) {
   const [itemData, setItemData] = useState(null);
 
   useEffect(() => {
@@ -61,10 +61,10 @@ export default function Homepage() {
       )
       .then((data) => {
         setItemData(data);
-        document.title = 'George Lordos'
+        document.title = props.title;
       })
       .catch(console.error);
-  }, []);
+  }, [props.title]);
 
   if (!itemData) {
     return Loading();
@@ -99,7 +99,7 @@ export default function Homepage() {
             )}
           </div>
           <div className="pic">
-            <img src={urlFor(image).url()} alt="George Lordos" />
+            <img src={urlFor(image).url()} alt={props.title} />
           </div>
         </div>
       </div>

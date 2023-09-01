@@ -1,6 +1,6 @@
 /** @jsxImportSource theme-ui */
 import { Themed } from "@theme-ui/mdx";
-
+import configData from "../config.json"
 const paperSx = {
   textAlign: "center",
 };
@@ -8,12 +8,12 @@ const paperSx = {
 export default function Paper(props) {
   const { title, authors, link, event } = props;
 
-  // Function to highlight "G. Lordos"
+  // Function to highlight author name
   const highlightAuthor = (text) => {
     const authorsList = text.split(", ");
     return authorsList
       .map((author, index) => {
-        if (author === "G. Lordos") {
+        if (author === configData.authorName) {
           return <u key={index}>{author}</u>;
         }
         return author;

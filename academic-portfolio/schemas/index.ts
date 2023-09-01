@@ -5,8 +5,8 @@ import paper from './paper'
 import update from './update'
 import press from './press'
 import award from './award'
-import postEarth from './postEarth'
 import contact from './contact'
 import embed from './embed'
+import cv from './cv'
 
-export const schemaTypes = [author, update, post, postEarth, paper, award, press, contact, blockContent, embed]
+export const schemaTypes = [author, update, post, paper, award, press, contact, blockContent, embed, cv]

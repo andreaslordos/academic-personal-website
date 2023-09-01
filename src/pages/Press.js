@@ -9,7 +9,7 @@ const pageSx = {
   textAlign: "center",
 };
 
-export default function Press() {
+export default function Press(props) {
   const [itemData, setItemData] = useState(null);
 
   useEffect(() => {
@@ -21,10 +21,10 @@ export default function Press() {
       )
       .then((data) => {
         setItemData(data);
-        document.title = 'Press';
+        document.title = props.title;
       })
       .catch(console.error);
-  }, []);
+  }, [props.title]);
 
   if (!itemData) {
     return Loading();
@@ -34,7 +34,7 @@ export default function Press() {
 
   return (
     <div css={pageSx}>
-      <Themed.h1>Press</Themed.h1>
+      <Themed.h1>{props.title}</Themed.h1>
       {itemData.map((topic) => {
         return (
           <PressSection key={topic._id} title={topic.title} body={topic.body} />

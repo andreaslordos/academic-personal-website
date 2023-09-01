@@ -5,9 +5,9 @@ import {schemaTypes} from './schemas'
 
 export default defineConfig({
   name: 'default',
-  title: 'personal-website-gcl',
+  title: 'academic-portfolio',
 
-  projectId: 'ynmpcv7c',
+  projectId: '4bltqpam',
   dataset: 'production',
 
   plugins: [deskTool(), visionTool()],

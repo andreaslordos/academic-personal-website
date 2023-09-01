@@ -1,6 +1,8 @@
 /** @jsxImportSource theme-ui */
 import { useLocation, Link } from "react-router-dom";
 import { Themed } from "@theme-ui/mdx";
+import configData from "../config.json"
+
 // Modified styles for responsiveness
 const navbarSx = {
   display: "flex",
@@ -45,23 +47,35 @@ const linkSx = {
 
 export default function Navbar() {
   const location = useLocation();
-  const sections = [
-    "George Lordos",
-    "Space",
-    "Papers",
-    "Awards",
-    "Press",
-    "Contact",
-  ];
+  const sections = Object.keys(configData.pages)
+    .filter((key) => configData.pages[key] === true)
+    .map((key) => configData.pageNames[key] || key);
+
 
   return (
     <div sx={navbarSx} className="navbar">
       {sections.map((section, index) => {
         // Determine the path for the section
         const path =
-          section === "George Lordos"
+          section === configData.pageNames.Homepage
             ? "/"
             : `/${section.replace(" ", "").toLowerCase()}`;
+
+
+        // If the section is "CV", return an <a> tag to open the PDF in a new tab
+        if (section === configData.pageNames.CV) {
+          return (
+            <a
+              key={index}
+              href="CV.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              sx={linkSx}
+            >
+              <Themed.h3>{section}</Themed.h3>
+            </a>
+          );
+        }
 
         return (
           <Link

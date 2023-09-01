@@ -36,16 +36,9 @@ export default function Work(props) {
   const [itemData, setItemData] = useState(null);
 
   useEffect(() => {
-    const type =
-      props.title === "Earth"
-        ? "postEarth"
-        : props.title === "Space"
-        ? "post"
-        : "post";
-
     sanityClient
       .fetch(
-        `*[_type == "${type}"]  | order(publishedAt desc) {
+        `*[_type == "post"]  | order(publishedAt desc) {
                 title,
                 slug,
                 mainImage,

@@ -9,7 +9,7 @@ const pageSx = {
   textAlign: "center",
 };
 
-export default function Awards() {
+export default function Awards(props) {
   const [itemData, setItemData] = useState(null);
 
   useEffect(() => {
@@ -21,10 +21,10 @@ export default function Awards() {
       )
       .then((data) => {
         setItemData(data);
-        document.title = "Awards";
+        document.title = props.title;
       })
       .catch(console.error);
-  }, []);
+  }, [props.title]);
 
   if (!itemData) {
     return Loading();
@@ -34,7 +34,7 @@ export default function Awards() {
 
   return (
     <div css={pageSx}>
-      <Themed.h1>Awards</Themed.h1>
+      <Themed.h1>{props.title}</Themed.h1>
       {itemData.map((award) => {
         return (
           <Award

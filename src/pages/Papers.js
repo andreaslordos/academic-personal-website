@@ -12,7 +12,7 @@ const pageSx = {
   },
 };
 
-export default function Papers() {
+export default function Papers(props) {
   const [itemData, setItemData] = useState(null);
 
   useEffect(() => {
@@ -24,10 +24,10 @@ export default function Papers() {
       )
       .then((data) => {
         setItemData(data);
-        document.title = 'Papers';
+        document.title = props.title;
       })
       .catch(console.error);
-  }, []);
+  }, [props.title]);
 
   if (!itemData) {
     return Loading();
@@ -37,7 +37,7 @@ export default function Papers() {
 
   return (
     <div css={pageSx}>
-      <Themed.h1>Papers</Themed.h1>
+      <Themed.h1>{props.title}</Themed.h1>
       {itemData.map((paper) => {
         return (
           <Paper

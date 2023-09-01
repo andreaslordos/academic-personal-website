@@ -1,0 +1,26 @@
+{
+    "name": "Andreas Lordos",
+    "authorName": "A. Lordos",
+    "sanityProjectId": "4bltqpam",
+    "pages": {
+        "Homepage": true,
+        "Projects": true,
+        "Papers": true,
+        "Awards": true,
+        "Press": true,
+        "Contact": true,
+        "CV": true,
+        "other": false
+    },
+    "pageNames": {
+        "Homepage": "Andreas Lordos",
+        "Projects": "Work",
+        "Papers": "Papers",
+        "Awards": "Awards",
+        "Press": "Press",
+        "Contact": "Contact",
+        "CV": "CV",
+        "other": ""
+    },
+    "metaDescription": "Andreas Lordos, Harvard CS '25"
+}

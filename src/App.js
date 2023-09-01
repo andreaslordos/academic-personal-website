@@ -8,9 +8,7 @@ import Awards from "./pages/Awards";
 import Contact from "./pages/Contact";
 import Papers from "./pages/Papers";
 import Press from "./pages/Press";
-import Space from "./pages/Space";
-//import Updates from "./pages/Updates"
-//import Earth from "./pages/Earth"
+import Work from "./pages/Work";
 import Homepage from "./pages/Homepage";
 import ContentItem from "./pages/ContentItem";
 import PageNotFound from "./pages/PageNotFound";
@@ -18,6 +16,8 @@ import PageNotFound from "./pages/PageNotFound";
 import Navbar from "./components/Navbar";
 
 import ScrollToTop from "./components/ScrollToTop";
+
+import configData from './config.json';
 
 const appSx = {
   width: "67%",
@@ -54,14 +54,12 @@ function App() {
           <div className="mainContent" sx={appSx}>
             <ScrollToTop />
             <Routes>
-              <Route element={<Homepage />} path="/" exact />
-              {/*<Route element={<Updates />} path="/updates" exact />*/}
-              <Route element={<Space />} path="/space" exact />
-              {/*<Route element={<Earth />} path="/earth" exact />*/}
-              <Route element={<Papers />} path="/papers" exact />
-              <Route element={<Awards />} path="/awards" exact />
-              <Route element={<Press />} path="/press" exact />
-              <Route element={<Contact />} path="/contact" exact />
+              <Route element={<Homepage title={configData.pageNames.Homepage}/>} path="/" exact />
+              {configData.pages.Projects ? <Route element={<Work title={configData.pageNames.Projects}/>} path={"/" + configData.pageNames.Projects.replace(" ", "").toLowerCase()} exact /> : ""}
+              {configData.pages.Papers ? <Route element={<Papers title={configData.pageNames.Papers}/>} path={"/" + configData.pageNames.Papers.replace(" ", "").toLowerCase()} exact /> : ""}
+              {configData.pages.Awards ? <Route element={<Awards title={configData.pageNames.Awards}/>} path={"/" + configData.pageNames.Awards.replace(" ", "").toLowerCase()} exact /> : ""}
+              {configData.pages.Press ? <Route element={<Press title={configData.pageNames.Press}/>} path={"/" + configData.pageNames.Press.replace(" ", "").toLowerCase()} exact /> : ""}
+              {configData.pages.Contact ? <Route element={<Contact title={configData.pageNames.Contact}/>} path={"/" + configData.pageNames.Contact.replace(" ", "").toLowerCase()} exact /> : ""}
               <Route element={<ContentItem />} path="/content/:slug" />
               <Route element={<PageNotFound />} path="*" />
             </Routes>
