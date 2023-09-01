@@ -1,3 +1,7 @@
+[![Deploy with 
+Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fandreaslordos%2Facademic-personal-website&project-name=academic-portfolio-website&repository-name=academic-portfolio-website&demo-title=Portfolio%20Website%20Demo%20(George%20Lordos)&demo-description=An%20academic%20portfolio%20website%20using%20React%20%2B%20Vercel&demo-url=georgelordos.com&integration-ids=ac_hb2LITYajhRQ0i4QznmKH7gx)
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
