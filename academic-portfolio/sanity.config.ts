@@ -8,7 +8,7 @@ export default defineConfig({
   name: 'default',
   title: 'academic-portfolio',
 
-  projectId: configData.sanityProjectIdcd,
+  projectId: configData.sanityProjectId,
   dataset: 'production',
 
   plugins: [deskTool(), visionTool()],
