@@ -9,7 +9,7 @@
         "Awards": true,
         "Press": true,
         "Contact": true,
-        "CV": false
+        "CV": true
     },
     "pageNames": {
         "Homepage": "George Lordos",
