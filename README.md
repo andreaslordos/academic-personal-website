@@ -90,7 +90,8 @@ After all the above steps are completed and you've added enough content so that 
 2. Enter any Project Name / ID that you like
 3. Your public directory is `build`
 4. Select `Yes` for configuring as a single page app
-5. Select `No` for configuring automatic deploys with GitHub
+5. Select `Yes` for configuring automatic deploys with GitHub
+7. Run a build script every deploy **no**, Overwrite irebase-hosting-pull-request.yml **no**, automatic deployment when PR is merged **yes**, branch associated **main**, overwrite workflow file **no** 
 
 Now, push to GitHub:
 
@@ -98,7 +99,7 @@ Now, push to GitHub:
     git commit -m "firebase setup"
     git push origin main
 
-And then build the website + deploy to Firebase:
+And then build the website + deploy to Firebase (this should be done automatically on each GitHub push but still good practice):
 
     npm run build
     firebase deploy
