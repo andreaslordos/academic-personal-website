@@ -1,7 +1,7 @@
 {
-    "name": "Andreas Lordos",
-    "authorName": "A. Lordos",
-    "sanityProjectId": "4bltqpam",
+    "name": "George Lordos",
+    "authorName": "G. Lordos",
+    "sanityProjectId": "ynmpcv7c",
     "pages": {
         "Homepage": true,
         "Projects": true,
@@ -9,18 +9,16 @@
         "Awards": true,
         "Press": true,
         "Contact": true,
-        "CV": true,
-        "other": false
+        "CV": false
     },
     "pageNames": {
-        "Homepage": "Andreas Lordos",
+        "Homepage": "George Lordos",
         "Projects": "Work",
         "Papers": "Papers",
         "Awards": "Awards",
         "Press": "Press",
         "Contact": "Contact",
-        "CV": "CV",
-        "other": ""
+        "CV": "CV"
     },
-    "metaDescription": "Andreas Lordos, Harvard CS '25"
+    "metaDescription": "George Lordos, Systems Architect"
 }
