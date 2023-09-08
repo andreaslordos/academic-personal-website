@@ -1,74 +1,112 @@
-[![Deploy with 
-Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fandreaslordos%2Facademic-personal-website&project-name=academic-portfolio-website&repository-name=academic-portfolio-website&demo-title=Portfolio%20Website%20Demo%20(George%20Lordos)&demo-description=An%20academic%20portfolio%20website%20using%20React%20%2B%20Vercel&demo-url=georgelordos.com&integration-ids=ac_hb2LITYajhRQ0i4QznmKH7gx)
+
+  
+ # Pretty Academic Portfolio Website Theme
+
+Finally, an academic portfolio website that actually looks good, ready to go.
+
+[See my dad's website here](www.georgelordos.com), or the screenshots below, for a demo of the website.
+
+This repo guides you through setting up your own academic portfolio website, complete with its own CMS.
+
+![Homepage](https://i.ibb.co/rs9NHbP/Homepage.png)
+
+![Papers Page](https://i.ibb.co/HFLK8RP/Papers.png)
+
+![Project page](https://i.ibb.co/MSF9JT1/Project.png)
+  
+
+## Guide
+  
+  ### WEBSITE SETUP
+
+1. Click on "Use this template" and then "Clone this repository"
+2. `git clone` your directory locally to your computer
+3. `cd src && npm i`
+4. Edit `src/config.json` (see **Config Manual** below) as needed. Leave Project ID blank for now
+5. `cd ..`
+6. `python setup.py`
+7. Continue to **CMS guide**
+
+### CMS GUIDE
+
+#### Creating the project
+1. Run this command in your terminal:  
+
+	    npm create sanity@latest -- --bare --dataset-default --create-project "Personal Site"
+2. Follow instructions from Terminal to create or login to Sanity
+3. After creating your account, go back to Terminal and take note of the Project ID.
+4. Copy paste your Sanity Project ID into `config.js` and proceed to **Deploying the Schema**
+
+#### Deploying the CMS 
+
+    cd cms
+    npm i
+    sanity cors add localhost:3000
+    sanity deploy
+
+*sanity deploy* will prompt you to enter a hostname for your CMS. Enter whatever you like - keep in mind it needs to be a unique hostname so maybe 
+put your full name down. Take note of the link outputted after sanity deploy runs - that is your Sanity CMS!
+
+**Testing your website**
+Navigate to the project root and run `npm start`. Add content to your website through the link above. Your website will be empty until you add 
+content.
 
 
-# Getting Started with Create React App
+## Config Manual
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Config File
+Fields:
 
-## Available Scripts
+**name**: Your full name. Will be used in the website's title and homepage
 
-In the project directory, you can run:
+**authorName**: e.g. if your name is "John Roberts", this would likely be "J. Roberts". This is used to underline your author name in the Papers 
+section so viewers can easily discern if you were the first, second, third, etc. author
 
-### `npm start`
+**sanityProjectId**: Links your Sanity CMS to your site. You get the Project ID after completing *Creating the Project* in the CMS Guide 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+**pages**:  Which pages you want to display. These are already set by default but feel free to change them.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+**pageNames:** What the name of each page should be. These are already set by default but feel free to change them
 
-### `npm test`
+**metaDescription**: The description of your website that shows up on Google Search
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+### CV
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+If you want to add your CV to the website, you should replace CV.pdf in the `public/` folder with a PDF of your own CV. Make sure your CV is named 
+`CV.pdf`
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Favicon
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Replace the `favicon.ico` in the `public/` directory to change your website's icon
 
-### `npm run eject`
+## Deploying your website
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+After all the above steps are completed and you've added enough content so that your personal website is ready to go, run
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+    firebase deploy hosting
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+1. Select the option to **Create a New Project.**
+2. Enter any Project Name / ID that you like
+3. Your public directory is `build`
+4. Select `Yes` for configuring as a single page app
+5. Select `No` for configuring automatic deploys with GitHub
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Now, push to GitHub:
 
-## Learn More
+    git add .
+    git commit -m "firebase setup"
+    git push origin main
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+And then build the website + deploy to Firebase:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+    npm run build
+    firebase deploy
 
-### Code Splitting
+After deploying, you should get a URL where your website is hosted. Make sure to add that URL as a CORS Origin so that Sanity lets your site 
+request data
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+    cd cms
+    sanity cors add your-url-here
+    
+Congratulations, you have a personal website!
