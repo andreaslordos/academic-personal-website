@@ -5,23 +5,14 @@ const paperSx = {
   textAlign: "center",
 };
 
-export default function Paper(props) {
-  const { title, authors, link, event } = props;
+export default function Paper({ title, authors, link, event }) {
 
   // Function to highlight author name
-  const highlightAuthor = (text) => {
-    const authorsList = text.split(", ");
-    return authorsList
-      .map((author, index) => {
-        if (author === configData.authorName) {
-          return <u key={index}>{author}</u>;
-        }
-        return author;
-      })
-      .reduce(
-        (prev, curr, index) => (index === 0 ? [curr] : [prev, ", ", curr]),
-        []
-      );
+  const highlightAuthor = (authors) => {
+    return authors
+      .split(", ")
+      .map((author, index) => author === configData.authorName ? <u key={index}>{author}</u> : author)
+      .join(", ");
   };
 
   return (

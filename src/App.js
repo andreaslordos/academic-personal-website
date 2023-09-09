@@ -46,6 +46,15 @@ const containerSx = {
 };
 
 function App() {
+  
+  const generatePath = (pageName) => {
+    return "/" + pageName.replace(" ", "").toLowerCase();
+  };
+
+  const generateRoute = (pageName, Component) => {
+    return configData.pages[pageName] ? <Route element={<Component title={configData.pageNames[pageName]}/>} path={generatePath(configData.pageNames[pageName])} exact /> : "";
+  };
+
   return (
     <ThemeUIProvider theme={theme}>
       <BrowserRouter>
@@ -55,11 +64,11 @@ function App() {
             <ScrollToTop />
             <Routes>
               <Route element={<Homepage title={configData.pageNames.Homepage}/>} path="/" exact />
-              {configData.pages.Projects ? <Route element={<Work title={configData.pageNames.Projects}/>} path={"/" + configData.pageNames.Projects.replace(" ", "").toLowerCase()} exact /> : ""}
-              {configData.pages.Papers ? <Route element={<Papers title={configData.pageNames.Papers}/>} path={"/" + configData.pageNames.Papers.replace(" ", "").toLowerCase()} exact /> : ""}
-              {configData.pages.Awards ? <Route element={<Awards title={configData.pageNames.Awards}/>} path={"/" + configData.pageNames.Awards.replace(" ", "").toLowerCase()} exact /> : ""}
-              {configData.pages.Press ? <Route element={<Press title={configData.pageNames.Press}/>} path={"/" + configData.pageNames.Press.replace(" ", "").toLowerCase()} exact /> : ""}
-              {configData.pages.Contact ? <Route element={<Contact title={configData.pageNames.Contact}/>} path={"/" + configData.pageNames.Contact.replace(" ", "").toLowerCase()} exact /> : ""}
+              {generateRoute('Projects', Work)}
+              {generateRoute('Papers', Papers)}
+              {generateRoute('Awards', Awards)}
+              {generateRoute('Press', Press)}
+              {generateRoute('Contact', Contact)}
               <Route element={<ContentItem />} path="/content/:slug" />
               <Route element={<PageNotFound />} path="*" />
             </Routes>
