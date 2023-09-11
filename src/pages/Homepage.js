@@ -68,8 +68,6 @@ export default function Homepage(props) {
 
   if (!itemData) {
     return Loading();
-  } else {
-    console.log(itemData);
   }
 
   const bio = itemData.bio;

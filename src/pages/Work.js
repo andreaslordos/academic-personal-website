@@ -55,8 +55,6 @@ export default function Work(props) {
 
   if (!itemData) {
     return <Loading />;
-  } else {
-    console.log(itemData);
   }
 
   return (

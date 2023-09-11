@@ -28,10 +28,8 @@ export default function Awards(props) {
 
   if (!itemData) {
     return Loading();
-  } else {
-    console.log(itemData);
   }
-
+  
   return (
     <div css={pageSx}>
       <Themed.h1>{props.title}</Themed.h1>

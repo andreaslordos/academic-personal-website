@@ -31,8 +31,6 @@ export default function Papers(props) {
 
   if (!itemData) {
     return Loading();
-  } else {
-    console.log(itemData);
   }
 
   return (

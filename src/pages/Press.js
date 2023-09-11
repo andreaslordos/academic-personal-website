@@ -28,8 +28,6 @@ export default function Press(props) {
 
   if (!itemData) {
     return Loading();
-  } else {
-    console.log(itemData);
   }
 
   return (

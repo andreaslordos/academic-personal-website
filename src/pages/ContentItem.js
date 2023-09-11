@@ -34,8 +34,6 @@ export default function ContentItem(props) {
   const { slug } = useParams();
   const [itemData, setItemData] = useState(null);
 
-  console.log(slug);
-
   useEffect(() => {
     sanityClient
       .fetch(
@@ -55,8 +53,6 @@ export default function ContentItem(props) {
 
   if (!itemData) {
     return <Loading />;
-  } else {
-    console.log(itemData);
   }
 
   const title = itemData.title;

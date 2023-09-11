@@ -41,8 +41,6 @@ export default function Contact(props) {
 
   if (!itemData) {
     return Loading();
-  } else {
-    console.log(itemData);
   }
 
   const body = itemData.body;
